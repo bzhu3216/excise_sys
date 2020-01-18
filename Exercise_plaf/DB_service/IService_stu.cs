@@ -14,7 +14,7 @@ namespace DB_service
     {
 
         [OperationContract]
-        string GetData(int value);
+        int Addstu(Exercise_DAL.StudInfo1  student);
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);

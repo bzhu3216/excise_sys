@@ -25,6 +25,6 @@ namespace Exercise_DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<StudINfo> StudINfoSet { get; set; }
+        public virtual DbSet<StudInfo1> StudInfo1Set { get; set; }
     }
 }

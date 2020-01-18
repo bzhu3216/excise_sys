@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DB_tool.cs" />
     <Compile Include="Exercise_ER.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -68,7 +68,7 @@
       <DependentUpon>Exercise_ER.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StudINfo.cs">
+    <Compile Include="StudInfo1.cs">
       <DependentUpon>Exercise_ER.tt</DependentUpon>
     </Compile>
   </ItemGroup>

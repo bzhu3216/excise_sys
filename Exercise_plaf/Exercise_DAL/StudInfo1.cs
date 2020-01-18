@@ -12,9 +12,9 @@ namespace Exercise_DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class StudINfo
+    public partial class StudInfo1
     {
-        public string Id { get; set; }
+        public string studentid { get; set; }
         public string name { get; set; }
         public string pd { get; set; }
     }
