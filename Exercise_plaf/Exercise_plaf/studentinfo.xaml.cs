@@ -33,35 +33,25 @@ namespace Exercise_plaf
         {
 
             //导入学生名单
-            String dirup = null;
-            Process[] procs = Process.GetProcessesByName("EXCEL");
-            foreach (Process pro in procs)
-            {
-                pro.Kill();//没有更好的方法,只有杀掉进程
-            }
-            GC.Collect();
-            /*  FolderBrowserDialog dialog = new FolderBrowserDialog();
-              dialog.Description = "请选择文件路径";
-
-              if (dialog.ShowDialog() == DialogResult.OK)
-              {
-                  string foldPath = dialog.SelectedPath;
-                  dirup = foldPath;
-                  //button2.Enabled = true;
-              }*/
-
+            String dirup = null;            
             Microsoft.Win32.OpenFileDialog ofd = new Microsoft.Win32.OpenFileDialog();
             ofd.DefaultExt = ".xlsx";
             ofd.Filter = "xlsx file|*.xlsx";
             if (ofd.ShowDialog() == true)
             {
                 dirup = ofd.FileName;
-               DB_exceltool.getstudentsfromexcel(dirup);
-                studentlist = DB_exceltool.studentList;
+                DB_exceltool.getstudentsfromexcel(dirup);
+                DB_exceltool.savestudents(1);
+
+                // studentlist = DB_exceltool.studentList;
+                studentlist=DB_exceltool.searchstubyclassid(1);
+
+
                 if (studentlist.Count != 0)
                   
                 // ((this.FindName("DG1")) as DataGrid).ItemsSource = peopleList;
                 DG1.ItemsSource = studentlist;
+               // DB_exceltool.savestudents(1);
 
             }
 

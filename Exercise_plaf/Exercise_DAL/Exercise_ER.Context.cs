@@ -26,5 +26,7 @@ namespace Exercise_DAL
         }
     
         public virtual DbSet<StudInfo1> StudInfo1Set { get; set; }
+        public virtual DbSet<class_student> class_student { get; set; }
+        public virtual DbSet<classinfo> classinfo { get; set; }
     }
 }

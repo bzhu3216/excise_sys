@@ -12,13 +12,20 @@ namespace DB_service
     // 注意: 为了启动 WCF 测试客户端以测试此服务，请在解决方案资源管理器中选择 Service1.svc 或 Service1.svc.cs，然后开始调试。
     public class Service1 : IService_stu
     {
-       public int Addstu(StudInfo1 stud1)
+       public int Addstu(List<Exercise_DAL.class_student> c_studl, List<Exercise_DAL.StudInfo1> studentl)
         {
-            DB_tool dbtool = new DB_tool();        
+            DB_tool dbtool = new DB_tool();      
 
-             return dbtool.Addstudent(stud1);
+             return dbtool.Addstudentandclass(c_studl,studentl);
 
         }
+
+        public List<Exercise_DAL.Studenttemp> searchstubyclassid(int classid) {
+            DB_tool dbtool = new DB_tool();
+            return dbtool.searchstubyclassid(classid);
+        }
+
+
 
         public CompositeType GetDataUsingDataContract(CompositeType composite)
         {

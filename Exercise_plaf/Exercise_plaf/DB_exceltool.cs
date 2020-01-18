@@ -12,6 +12,8 @@ using Microsoft.Win32;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Collections;
 using System.Diagnostics;
+using Exercise_plaf.Servicestu;
+//using Exercise_DAL;
 
 namespace Exercise_plaf
 {
@@ -77,24 +79,74 @@ namespace Exercise_plaf
                 pro.Kill();//没有更好的方法,只有杀掉进程
             }
             GC.Collect();
+        }
+        ////endfromexcel//////////////////
+
+        /////save student to db
+
+        public static void savestudents(int classid)
+        {
+
+            Service_stuClient serviceDB = new Service_stuClient();
+            List<Exercise_DAL.class_student> c_studl = new List<Exercise_DAL.class_student>();
+            List<Exercise_DAL.StudInfo1> studentl = new List<Exercise_DAL.StudInfo1>();
+
+            foreach (Student st in studentList)
+            {
+                Exercise_DAL.StudInfo1 sttemp = new Exercise_DAL.StudInfo1();
+                sttemp.studentid = st.studentid;
+                sttemp.name = st.name;
+                sttemp.pd = "11111111";
+                 Exercise_DAL.class_student c_st = new Exercise_DAL.class_student();
+                c_st.classid = classid;
+                c_st.studentid = st.studentid;
+                c_st.classno = st.no;
+                c_studl.Add(c_st);
+                studentl.Add(sttemp);
+            }
+            serviceDB.Addstu(c_studl, studentl);
+            ///////////////////////////////////////////////
 
 
+        }
+        ///endsave
+
+        /////////////////////////begin search
+        public static ObservableCollection<Student> searchstubyclassid(int classid2)
+
+        {
+            ObservableCollection<Student> studentList2 = new ObservableCollection<Student>();
+
+            List<Exercise_DAL.Studenttemp> stl = new List<Exercise_DAL.Studenttemp>();
+            Service_stuClient serviceDB = new Service_stuClient();
+            stl = serviceDB.searchstubyclassid(classid2);
+
+            foreach (Exercise_DAL.Studenttemp stt in stl)
+            {
+                studentList2.Add(new Student(stt.studentid, stt.name, stt.no));
+
+
+            }
+
+
+            return studentList2;
 
         }
 
 
-        ////endfromexcel//////////////////
-
-    }
-
-
-/////save student to db
 
 
 
 
 
-///endsave
+
+
+//////end search
+
+    }//endclass
+
+
+
 
 
 

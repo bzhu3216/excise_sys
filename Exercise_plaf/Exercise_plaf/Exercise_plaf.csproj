@@ -44,6 +44,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -68,6 +70,12 @@
     </Compile>
     <Compile Include="classes.cs" />
     <Compile Include="DB_exceltool.cs" />
+    <Compile Include="DB_problems.cs" />
+    <Compile Include="Service References\Servicestu\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Student.cs" />
     <Compile Include="studentinfo.xaml.cs">
       <DependentUpon>studentinfo.xaml</DependentUpon>
@@ -94,11 +102,28 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\Exercise_DAL.Studenttemp.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\Servicestu\Exercise_plaf.Servicestu.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Servicestu\Service1.wsdl" />
+    <None Include="Service References\Servicestu\Service_stu.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Servicestu\Service_stu1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Servicestu\Service_stu2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Servicestu\Service_stu3.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -115,6 +140,33 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Servicestu\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Servicestu\Service_stu.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Servicestu\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Servicestu\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Servicestu\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Exercise_DAL\Exercise_DAL.csproj">
+      <Project>{7BD17611-794E-4DF6-97A3-CE47F9C00ED0}</Project>
+      <Name>Exercise_DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

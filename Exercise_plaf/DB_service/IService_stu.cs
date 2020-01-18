@@ -14,7 +14,11 @@ namespace DB_service
     {
 
         [OperationContract]
-        int Addstu(Exercise_DAL.StudInfo1  student);
+        int Addstu(List<Exercise_DAL.class_student> c_studl, List<Exercise_DAL.StudInfo1> studentl);
+        [OperationContract]
+        List<Exercise_DAL.Studenttemp> searchstubyclassid(int classid);
+
+
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
